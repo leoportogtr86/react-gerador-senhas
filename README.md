@@ -1,5 +1,3 @@
-### README para o Projeto "Gerador de Senhas com useState"
-
 # Gerador de Senhas com useState
 
 Este projeto é um gerador de senhas simples, criado com React, com o objetivo de estudar e praticar o hook `useState`. Ele permite que os usuários gerem senhas aleatórias com base em suas preferências, como o tamanho da senha e a inclusão de caracteres especiais e números.
