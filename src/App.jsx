@@ -1,11 +1,11 @@
 import './App.css'
-import Form1 from "./components/Form1/index.jsx";
+import Check from "./components/Check/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <Form1/>
+            <Check/>
         </div>
     )
 }
