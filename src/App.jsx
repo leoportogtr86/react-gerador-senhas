@@ -1,12 +1,11 @@
 import './App.css'
-import Contador from './components/Contador/index.jsx';
-import GeradorSenha from "./components/GeradorSenha/index.jsx";
+import Form1 from "./components/Form1/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <Contador />
+            <Form1/>
         </div>
     )
 }
