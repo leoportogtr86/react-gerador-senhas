@@ -13,6 +13,7 @@ const Lista = () => {
             return;
         }
         setLista([...lista, item]);
+        setItem("");
     }
 
     return (
