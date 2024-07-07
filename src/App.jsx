@@ -1,11 +1,11 @@
 import './App.css'
-import Check from "./components/Check/index.jsx";
+import ChangeColor from "./components/ChangeColor/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <Check/>
+            <ChangeColor/>
         </div>
     )
 }

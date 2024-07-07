@@ -1,5 +1,4 @@
 // 4. **Checkbox:** Crie um componente com um checkbox que altera o estado entre verdadeiro e falso conforme é clicado.
-
 import {useState} from "react";
 
 const Check = () => {
