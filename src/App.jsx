@@ -1,11 +1,11 @@
 import './App.css'
-import ShowHideText from "./components/ShowHideText/index.jsx";
+import Lista from "./components/Lista/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <ShowHideText/>
+            <Lista/>
         </div>
     )
 }
