@@ -1,575 +1,301 @@
-Lista de 20 exercícios práticos sobre o hook `useState` em ReactJS. Cada exercício inclui um código base
-que você deve alterar ou manter para praticar o uso do hook `useState`.
-
-1. **Contador simples**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function Counter() {
-       const [count, setCount] = useState(0);
-
-       return (
-           <div>
-               <p>Count: {count}</p>
-               <button onClick={() => setCount(count + 1)}>Increment</button>
-           </div>
-       );
-   }
-
-   export default Counter;
-   ```
-
-2. **Contador com decremento**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function Counter() {
-       const [count, setCount] = useState(0);
-
-       return (
-           <div>
-               <p>Count: {count}</p>
-               <button onClick={() => setCount(count + 1)}>Increment</button>
-               <button onClick={() => setCount(count - 1)}>Decrement</button>
-           </div>
-       );
-   }
-
-   export default Counter;
-   ```
-
-3. **Alternar estado entre verdadeiro e falso**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function Toggle() {
-       const [isOn, setIsOn] = useState(false);
-
-       return (
-           <div>
-               <p>{isOn ? "On" : "Off"}</p>
-               <button onClick={() => setIsOn(!isOn)}>Toggle</button>
-           </div>
-       );
-   }
-
-   export default Toggle;
-   ```
-
-4. **Input controlado**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function ControlledInput() {
-       const [text, setText] = useState('');
-
-       return (
-           <div>
-               <input 
-                   type="text" 
-                   value={text} 
-                   onChange={(e) => setText(e.target.value)} 
-               />
-               <p>{text}</p>
-           </div>
-       );
-   }
-
-   export default ControlledInput;
-   ```
-
-5. **Checkbox controlado**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function ControlledCheckbox() {
-       const [isChecked, setIsChecked] = useState(false);
-
-       return (
-           <div>
-               <input 
-                   type="checkbox" 
-                   checked={isChecked} 
-                   onChange={(e) => setIsChecked(e.target.checked)} 
-               />
-               <p>{isChecked ? "Checked" : "Unchecked"}</p>
-           </div>
-       );
-   }
-
-   export default ControlledCheckbox;
-   ```
-
-6. **Mudar cor de fundo**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function BackgroundColor() {
-       const [color, setColor] = useState('white');
-
-       return (
-           <div style={{ backgroundColor: color, height: '100vh' }}>
-               <button onClick={() => setColor(color === 'white' ? 'blue' : 'white')}>
-                   Change Color
-               </button>
-           </div>
-       );
-   }
-
-   export default BackgroundColor;
-   ```
-
-7. **Exibir/ocultar texto**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function ToggleText() {
-       const [isVisible, setIsVisible] = useState(true);
-
-       return (
-           <div>
-               <button onClick={() => setIsVisible(!isVisible)}>
-                   {isVisible ? "Hide" : "Show"} Text
-               </button>
-               {isVisible && <p>This is some text!</p>}
-           </div>
-       );
-   }
-
-   export default ToggleText;
-   ```
-
-8. **Gerenciar lista de itens**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function ItemList() {
-       const [items, setItems] = useState([]);
-
-       const addItem = () => {
-           setItems([...items, `Item ${items.length + 1}`]);
-       };
-
-       return (
-           <div>
-               <button onClick={addItem}>Add Item</button>
-               <ul>
-                   {items.map((item, index) => (
-                       <li key={index}>{item}</li>
-                   ))}
-               </ul>
-           </div>
-       );
-   }
-
-   export default ItemList;
-   ```
-
-9. **Gerenciar formulário de múltiplos inputs**
-   ```jsx
-   import React, { useState } from 'react';
-
-   function MultiInputForm() {
-       const [form, setForm] = useState({ name: '', email: '' });
-
-       const handleChange = (e) => {
-           setForm({
-               ...form,
-               [e.target.name]: e.target.value
-           });
-       };
-
-       return (
-           <div>
-               <input 
-                   type="text" 
-                   name="name" 
-                   value={form.name} 
-                   onChange={handleChange} 
-                   placeholder="Name"
-               />
-               <input 
-                   type="email" 
-                   name="email" 
-                   value={form.email} 
-                   onChange={handleChange} 
-                   placeholder="Email"
-               />
-               <p>Name: {form.name}</p>
-               <p>Email: {form.email}</p>
-           </div>
-       );
-   }
-
-   export default MultiInputForm;
-   ```
-
-10. **Contador com reset**
-    ```jsx
-    import React, { useState } from 'react';
-
-    function CounterWithReset() {
-        const [count, setCount] = useState(0);
-
-        const resetCount = () => {
-            setCount(0);
-        };
-
-        return (
-            <div>
-                <p>Count: {count}</p>
-                <button onClick={() => setCount(count + 1)}>Increment</button>
-                <button onClick={resetCount}>Reset</button>
-            </div>
-        );
-    }
-
-    export default CounterWithReset;
-    ```
-
-11. **Mudar texto de botão**
-    ```jsx
-    import React, { useState } from 'react';
-
-    function ButtonText() {
-        const [text, setText] = useState('Click me');
-
-        const handleClick = () => {
-            setText('Clicked');
-        };
-
-        return (
-            <button onClick={handleClick}>{text}</button>
-        );
-    }
-
-    export default ButtonText;
-    ```
-
-12. **Contador com valor inicial dinâmico**
-    ```jsx
-    import React, { useState } from 'react';
-
-    function DynamicInitialValue() {
-        const [count, setCount] = useState(() => {
-            const initialValue = 10; // Pode ser calculado dinamicamente
-            return initialValue;
-        });
-
-        return (
-            <div>
-                <p>Count: {count}</p>
-                <button onClick={() => setCount(count + 1)}>Increment</button>
-            </div>
-        );
-    }
-
-    export default DynamicInitialValue;
-    ```
-
-13. **Mostrar/esconder senha**
-    ```jsx
-    import React, { useState } from 'react';
-
-    function ShowHidePassword() {
-        const [password, setPassword] = useState('');
-        const [showPassword, setShowPassword] = useState(false);
-
-        return (
-            <div>
-                <input 
-                    type={showPassword ? "text" : "password"} 
-                    value={password} 
-                    onChange={(e) => setPassword(e.target.value)} 
-                />
-                <button onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? "Hide" : "Show"} Password
-                </button>
-            </div>
-        );
-    }
-
-    export default ShowHidePassword;
-    ```
-
-14. **Gerenciar múltiplas caixas de seleção**
-    ```jsx
-    import React, { useState } from 'react';
-
-    function MultipleCheckboxes() {
-        const [checkedItems, setCheckedItems] = useState({
-            item1: false,
-            item2: false,
-            item3: false
-        });
-
-        const handleChange = (e) => {
-            setCheckedItems({
-                ...checkedItems,
-                [e.target.name]: e.target.checked
-            });
-        };
-
-        return (
-            <div>
-                <label>
-                    <input 
-                        type="checkbox" 
-                        name="item1" 
-                        checked={checkedItems.item1} 
-                        onChange={handleChange} 
-                    />
-                    Item 1
-                </label>
-                <label>
-                    <input 
-                        type="checkbox" 
-                        name="item2" 
-                        checked={checkedItems.item2} 
-                        onChange={handleChange} 
-                    />
-                    Item 2
-                </label>
-                <label>
-                    <input 
-                        type="checkbox" 
-                        name="item3" 
-                        checked={checkedItems.item3} 
-                        onChange={handleChange} 
-                    />
-                    Item 3
-                </label>
-            </div>
-        );
-    }
-
-    export default MultipleCheckboxes;
-    ```
-
-15. **Formulário de login simples**
-    ```jsx
-    import React, { useState } from 'react';
-
-    function LoginForm() {
-        const [username, setUsername] = useState('');
-        const [password, setPassword] = useState('');
-
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            alert(`Username: ${username}, Password: ${password}`);
-        };
-
-        return (
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type="text" 
-                    placeholder="Username
-
-"
-value={username}
-onChange={(e) => setUsername(e.target.value)}
-/>
-<input
-type="password"
-placeholder="Password"
-value={password}
-onChange={(e) => setPassword(e.target.value)}
-/>
-<button type="submit">Login</button>
-</form>
-);
+Aqui está uma lista de 10 exercícios práticos em ReactJS focados no hook `useState`. Cada exercício inclui um código base e uma documentação com os requisitos para você implementar as alterações.
+
+### Exercício 1: Contador Simples
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
+
+function Contador() {
+  const [contador, setContador] = useState(0);
+
+  return (
+    <div>
+      <p>Contagem: {contador}</p>
+      <button onClick={() => setContador(contador + 1)}>Incrementar</button>
+    </div>
+  );
 }
 
-    export default LoginForm;
-    ```
+export default Contador;
+```
 
-16. **Contador com incremento e decremento dinâmico**
-    ```jsx
-    import React, { useState } from 'react';
+#### Requisitos:
+- Adicionar um botão para decrementar o contador.
+- Adicionar um botão para resetar o contador para zero.
 
-    function DynamicCounter() {
-        const [count, setCount] = useState(0);
-        const [step, setStep] = useState(1);
+### Exercício 2: Input de Texto
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
 
-        return (
-            <div>
-                <p>Count: {count}</p>
-                <input 
-                    type="number" 
-                    value={step} 
-                    onChange={(e) => setStep(Number(e.target.value))} 
-                />
-                <button onClick={() => setCount(count + step)}>Increment</button>
-                <button onClick={() => setCount(count - step)}>Decrement</button>
-            </div>
-        );
-    }
+function InputTexto() {
+  const [texto, setTexto] = useState('');
 
-    export default DynamicCounter;
-    ```
+  return (
+    <div>
+      <input type="text" value={texto} onChange={(e) => setTexto(e.target.value)} />
+      <p>Você digitou: {texto}</p>
+    </div>
+  );
+}
 
-17. **Lista de tarefas**
-    ```jsx
-    import React, { useState } from 'react';
+export default InputTexto;
+```
 
-    function TodoList() {
-        const [task, setTask] = useState('');
-        const [tasks, setTasks] = useState([]);
+#### Requisitos:
+- Adicionar um botão que limpe o campo de texto.
+- Mostrar a contagem de caracteres digitados.
 
-        const addTask = () => {
-            setTasks([...tasks, task]);
-            setTask('');
-        };
+### Exercício 3: Lista de Tarefas
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
 
-        return (
-            <div>
-                <input 
-                    type="text" 
-                    value={task} 
-                    onChange={(e) => setTask(e.target.value)} 
-                />
-                <button onClick={addTask}>Add Task</button>
-                <ul>
-                    {tasks.map((task, index) => (
-                        <li key={index}>{task}</li>
-                    ))}
-                </ul>
-            </div>
-        );
-    }
+function ListaTarefas() {
+  const [tarefas, setTarefas] = useState([]);
+  const [novaTarefa, setNovaTarefa] = useState('');
 
-    export default TodoList;
-    ```
+  const adicionarTarefa = () => {
+    setTarefas([...tarefas, novaTarefa]);
+    setNovaTarefa('');
+  };
 
-18. **Gerenciar estado com objetos aninhados**
-    ```jsx
-    import React, { useState } from 'react';
+  return (
+    <div>
+      <input type="text" value={novaTarefa} onChange={(e) => setNovaTarefa(e.target.value)} />
+      <button onClick={adicionarTarefa}>Adicionar Tarefa</button>
+      <ul>
+        {tarefas.map((tarefa, index) => (
+          <li key={index}>{tarefa}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-    function NestedState() {
-        const [user, setUser] = useState({
-            name: '',
-            address: {
-                city: '',
-                country: ''
-            }
-        });
+export default ListaTarefas;
+```
 
-        const handleChange = (e) => {
-            const { name, value } = e.target;
-            setUser({
-                ...user,
-                [name]: value
-            });
-        };
+#### Requisitos:
+- Adicionar a funcionalidade de remover uma tarefa da lista.
+- Adicionar a funcionalidade de marcar uma tarefa como concluída.
 
-        const handleAddressChange = (e) => {
-            const { name, value } = e.target;
-            setUser({
-                ...user,
-                address: {
-                    ...user.address,
-                    [name]: value
-                }
-            });
-        };
+### Exercício 4: Controle de Visibilidade
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
 
-        return (
-            <div>
-                <input 
-                    type="text" 
-                    name="name" 
-                    value={user.name} 
-                    onChange={handleChange} 
-                    placeholder="Name"
-                />
-                <input 
-                    type="text" 
-                    name="city" 
-                    value={user.address.city} 
-                    onChange={handleAddressChange} 
-                    placeholder="City"
-                />
-                <input 
-                    type="text" 
-                    name="country" 
-                    value={user.address.country} 
-                    onChange={handleAddressChange} 
-                    placeholder="Country"
-                />
-                <p>{`Name: ${user.name}, City: ${user.address.city}, Country: ${user.address.country}`}</p>
-            </div>
-        );
-    }
+function ControleVisibilidade() {
+  const [visivel, setVisivel] = useState(true);
 
-    export default NestedState;
-    ```
+  return (
+    <div>
+      <button onClick={() => setVisivel(!visivel)}>Toggle Visibilidade</button>
+      {visivel && <p>Este é um texto visível.</p>}
+    </div>
+  );
+}
 
-19. **Formulario com validação**
-    ```jsx
-    import React, { useState } from 'react';
+export default ControleVisibilidade;
+```
 
-    function ValidationForm() {
-        const [email, setEmail] = useState('');
-        const [error, setError] = useState('');
+#### Requisitos:
+- Adicionar um botão para exibir/ocultar um elemento adicional (por exemplo, uma imagem).
+- Adicionar uma animação de transição ao exibir/ocultar os elementos.
 
-        const validateEmail = (e) => {
-            const value = e.target.value;
-            setEmail(value);
+### Exercício 5: Alternar Tema (Claro/Escuro)
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
 
-            if (!value.includes('@')) {
-                setError('Email is invalid');
-            } else {
-                setError('');
-            }
-        };
+function AlternarTema() {
+  const [temaEscuro, setTemaEscuro] = useState(false);
 
-        return (
-            <div>
-                <input 
-                    type="text" 
-                    value={email} 
-                    onChange={validateEmail} 
-                    placeholder="Email"
-                />
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-            </div>
-        );
-    }
+  const estilo = {
+    backgroundColor: temaEscuro ? '#333' : '#FFF',
+    color: temaEscuro ? '#FFF' : '#000',
+    padding: '10px',
+    textAlign: 'center',
+  };
 
-    export default ValidationForm;
-    ```
+  return (
+    <div style={estilo}>
+      <p>Este é um exemplo de alternância de tema.</p>
+      <button onClick={() => setTemaEscuro(!temaEscuro)}>
+        Alternar para {temaEscuro ? 'Claro' : 'Escuro'}
+      </button>
+    </div>
+  );
+}
 
-20. **Incremento e decremento com useReducer**
-    ```jsx
-    import React, { useReducer } from 'react';
+export default AlternarTema;
+```
 
-    function CounterWithReducer() {
-        const initialState = { count: 0 };
+#### Requisitos:
+- Adicionar a persistência do tema utilizando o `localStorage`.
+- Adicionar a opção de escolher entre mais de dois temas (por exemplo, um tema azul).
 
-        function reducer(state, action) {
-            switch (action.type) {
-                case 'increment':
-                    return { count: state.count + 1 };
-                case 'decrement':
-                    return { count: state.count - 1 };
-                default:
-                    throw new Error();
-            }
-        }
+### Exercício 6: Controle de Formulário
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
 
-        const [state, dispatch] = useReducer(reducer, initialState);
+function Formulario() {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
 
-        return (
-            <div>
-                <p>Count: {state.count}</p>
-                <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
-                <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
-            </div>
-        );
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`Nome: ${nome}, Email: ${email}`);
+  };
 
-    export default CounterWithReducer;
-    ```
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Nome:</label>
+        <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
 
-Cada um desses exercícios oferece uma boa prática para entender e utilizar o hook `useState` em diferentes contextos e
-cenários. Boa prática!
+export default Formulario;
+```
+
+#### Requisitos:
+- Adicionar validação de formulário (por exemplo, verificar se o nome não está vazio e se o email é válido).
+- Exibir mensagens de erro abaixo dos campos inválidos.
+
+### Exercício 7: Controle de Volume
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
+
+function ControleVolume() {
+  const [volume, setVolume] = useState(50);
+
+  return (
+    <div>
+      <input type="range" min="0" max="100" value={volume} onChange={(e) => setVolume(e.target.value)} />
+      <p>Volume: {volume}</p>
+    </div>
+  );
+}
+
+export default ControleVolume;
+```
+
+#### Requisitos:
+- Adicionar botões para aumentar e diminuir o volume em 10 unidades.
+- Adicionar um botão para mutar o volume.
+
+### Exercício 8: Preferências de Notificações
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
+
+function PreferenciasNotificacoes() {
+  const [notificacoes, setNotificacoes] = useState({
+    email: false,
+    sms: false,
+    push: false,
+  });
+
+  const toggleNotificacao = (tipo) => {
+    setNotificacoes({ ...notificacoes, [tipo]: !notificacoes[tipo] });
+  };
+
+  return (
+    <div>
+      <h3>Preferências de Notificações</h3>
+      <div>
+        <label>
+          <input type="checkbox" checked={notificacoes.email} onChange={() => toggleNotificacao('email')} />
+          Email
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={notificacoes.sms} onChange={() => toggleNotificacao('sms')} />
+          SMS
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={notificacoes.push} onChange={() => toggleNotificacao('push')} />
+          Push
+        </label>
+      </div>
+    </div>
+  );
+}
+
+export default PreferenciasNotificacoes;
+```
+
+#### Requisitos:
+- Adicionar a persistência das preferências de notificações utilizando o `localStorage`.
+- Adicionar um botão para resetar todas as preferências para o estado inicial.
+
+### Exercício 9: Simulador de Lançamento de Moeda
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
+
+function LancamentoMoeda() {
+  const [resultado, setResultado] = useState('');
+
+  const lancarMoeda = () => {
+    const valor = Math.random() < 0.5 ? 'Cara' : 'Coroa';
+    setResultado(valor);
+  };
+
+  return (
+    <div>
+      <p>Resultado: {resultado}</p>
+      <button onClick={lancarMoeda}>Lançar Moeda</button>
+    </div>
+  );
+}
+
+export default LancamentoMoeda;
+```
+
+#### Requisitos:
+- Exibir o histórico dos últimos 5 lançamentos.
+- Adicionar um botão para limpar o histórico.
+
+### Exercício 10: Contador com Passo Personalizado
+#### Código Base:
+```jsx
+import React, { useState } from 'react';
+
+function ContadorPasso() {
+  const [contador, setContador] = useState(0);
+  const [passo, setPasso] = useState(1);
+
+  return (
+    <div>
+      <div>
+        <label>Passo:</label>
+        <input type="number" value={passo} onChange={(e) => setPasso(Number(e.target.value))} />
+      </div>
+      <p>Contagem: {contador}</p>
+      <button onClick={() => setContador(contador + passo)}>Incrementar</button>
+    </div>
+  );
+}
+
+export default ContadorPasso;
+```
+
+#### Requisitos:
+- Adicionar um botão para decrementar o contador pelo passo definido.
+- Adicionar validação para impedir passos negativos e contadores negativos.
+
+Espero que esses exercícios ajudem a entender melhor como utilizar o hook `useState` no ReactJS. Se precisar de mais alguma coisa, estou à disposição!
