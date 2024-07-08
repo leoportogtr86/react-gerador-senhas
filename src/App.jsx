@@ -1,11 +1,11 @@
 import './App.css'
-import Lista from "./components/Lista/index.jsx";
+import Contador2 from "./components/Contador2/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <Lista/>
+            <Contador2/>
         </div>
     )
 }
