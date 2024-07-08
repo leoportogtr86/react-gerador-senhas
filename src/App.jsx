@@ -1,11 +1,11 @@
 import './App.css'
-import Contador2 from "./components/Contador2/index.jsx";
+import InputTexto from "./components/InputTexto/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <Contador2/>
+            <InputTexto/>
         </div>
     )
 }
