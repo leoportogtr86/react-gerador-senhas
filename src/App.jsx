@@ -1,11 +1,11 @@
 import './App.css'
-import InputTexto from "./components/InputTexto/index.jsx";
+import ListaTarefas from "./components/ListaTarefas/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <InputTexto/>
+            <ListaTarefas/>
         </div>
     )
 }

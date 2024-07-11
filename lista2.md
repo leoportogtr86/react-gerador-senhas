@@ -1,6 +1,6 @@
 Aqui está uma lista de 10 exercícios práticos em ReactJS focados no hook `useState`. Cada exercício inclui um código base e uma documentação com os requisitos para você implementar as alterações.
 
-### Exercício 1: Contador Simples
+### Exercício 1: Contador Simples => feito
 #### Código Base:
 ```jsx
 import React, { useState } from 'react';
@@ -23,7 +23,7 @@ export default Contador;
 - Adicionar um botão para decrementar o contador.
 - Adicionar um botão para resetar o contador para zero.
 
-### Exercício 2: Input de Texto
+### Exercício 2: Input de Texto => feito
 #### Código Base:
 ```jsx
 import React, { useState } from 'react';
