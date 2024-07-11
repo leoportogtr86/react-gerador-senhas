@@ -46,7 +46,7 @@ export default InputTexto;
 - Adicionar um botão que limpe o campo de texto.
 - Mostrar a contagem de caracteres digitados.
 
-### Exercício 3: Lista de Tarefas
+### Exercício 3: Lista de Tarefas => feito
 #### Código Base:
 ```jsx
 import React, { useState } from 'react';

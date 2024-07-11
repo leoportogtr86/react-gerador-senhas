@@ -1,11 +1,11 @@
 import './App.css'
-import ListaTarefas from "./components/ListaTarefas/index.jsx";
+import ControleVisibilidade from "./components/ControleVisibilidade/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <ListaTarefas/>
+            <ControleVisibilidade/>
         </div>
     )
 }

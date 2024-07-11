@@ -1,0 +1,19 @@
+#blue {
+    width: 100px;
+    height: 100px;
+    border-radius: 7px;
+    background-color: #007bff;
+    transition: 1s;
+}
+
+.show {
+    opacity: 1;
+}
+
+.hide {
+    opacity: 0;
+}
+
+button {
+    margin: 10px;
+}
