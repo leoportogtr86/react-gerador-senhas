@@ -1,11 +1,11 @@
 import './App.css'
-import ControleVisibilidade from "./components/ControleVisibilidade/index.jsx";
+import ContadorMultiplo from "./components/ContadorMultiplo/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <ControleVisibilidade/>
+            <ContadorMultiplo/>
         </div>
     )
 }

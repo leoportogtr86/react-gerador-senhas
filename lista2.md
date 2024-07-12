@@ -80,7 +80,7 @@ export default ListaTarefas;
 - Adicionar a funcionalidade de remover uma tarefa da lista.
 - Adicionar a funcionalidade de marcar uma tarefa como concluída.
 
-### Exercício 4: Controle de Visibilidade
+### Exercício 4: Controle de Visibilidade => feito
 #### Código Base:
 ```jsx
 import React, { useState } from 'react';
