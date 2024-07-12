@@ -1,11 +1,11 @@
 import './App.css'
-import ContadorMultiplo from "./components/ContadorMultiplo/index.jsx";
+import CalculadoraSoma from "./components/CalculadoraSoma/index.jsx";
 
 function App() {
 
     return (
         <div>
-            <ContadorMultiplo/>
+            <CalculadoraSoma/>
         </div>
     )
 }
